@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+            <header class="site-header section-padding d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12">
+                            <h2>
+                               <span>News</span>
+                            </h2>
+                            <h2>Award winning Ceremony In Germany</h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="faq section-padding">
+                <div class="container">
+                    <div class="row">
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 mb-5">
+                            <div class="card border-0 rounded-0 hover-shadow">
+                              <div class="card-img position-relative">
+                                <img class="card-img-top rounded-0" src="{{news_article.image.url}}" alt="event thumb">
+                                <!-- <div class="card-date"><span>18</span><br>December</div> -->
+                              </div>
+                              <div class="card-body">
+                                <!-- location -->
+                                <p><i class="bi-clock text-primary mr-2"></i><small> {{news_article.publication_date}}</small></p>
+                                <hr>
+                                
+                                    <div class="h3"><b>About</b></div>
+                              <div>
+                                <!-- {{news_article.content}} -->
+                                <p>
+                                    {{news_article.content}}
+                                </p>
+                            
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                         
+                     
+                         
+                    </div>
+                </div>
+            </section>
+
+
+{% endblock content %}

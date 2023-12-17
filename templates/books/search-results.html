@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+            <header class="site-header section-padding d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12">
+                            <h5>
+                                {{books.count}} search results for <span class=" text-primary">"{{query}}"</span>
+                                <!-- <span class="d-block text-dark">favorite stuffs</span> -->
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="products section-padding">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-12">
+                            <!-- <h5 class="mb-5">5 results for "The richest"</h5> -->
+                        </div>
+                        {% for book in books %}
+                        <div class="col-lg-3 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="{% url 'details' slug=book.slugify id=book.id %}">
+                                    <img src=" {% if book.cover_image %} {{book.cover_image.url}} {% else %} {{book.image_url}} {% endif %}" class="img-fluid product-image" alt="Book Cover">
+                                </a>
+
+                                {% if book.tag %}
+                                    <div class="product-top d-flex">
+                                                    <span class="product-alert"> 
+                                                    {{book.tag}} 
+                                                    </span>                                   
+                                        <!-- <a href="#" class="bi-heart-fill product-icon ms-auto"></a> -->
+                                    </div>
+                                {%endif%}
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="{% url 'details' book.slugify book.id %}" class="product-title-link">{{book.title}}</a>
+                                        </h5>
+
+                                        <p class="product-p">{{book.author}}</p>
+                                        
+                                       
+                                        <p>
+                                            {% if book.premium_price and book.premium_price > 0 %}
+                                                <strike class="text-danger">{{book.premium_price}}XAF </strike>
+                                            {% endif %}
+                                            {{book.price}}XAF
+                                        </p>
+                                        <p>
+                                     
+                                        </p>
+                                    </div>
+
+                                    <!-- <small class="product-price text-muted ms-auto mt-auto mb-5">XAF 35</small> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                   
+
+                    </div>
+                </div>
+            </section>
+
+
+
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="site-header section-padding  d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-10 col-12">
+                <h2>
+                Our Pulished <span class="text-primary">Books</span> 
+                </h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% for category in categories %}
+<section class="related-product pb-0  section-padding border-top mt-0">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+                <h3 class="mb-5 textcenter">{{ category.name }}</h3>
+            </div>
+            {% for book in category.book_set.all %}
+         
+            <div class="col-lg-3 col-12 mb-3">
+                <div class="product-thumb">
+                    <a href="{% url 'details' book.slugify book.id %}">
+                        <img src="{% if book.image_url %}  {{book.image_url}}  {% else %}  {{book.cover_image.url}} {% endif %}" style="width: 100%;" class="img-fluid product-image" alt="">
+                    </a>
+
+                    <div class="product-top d-flex">
+                        {% if book.tag %}
+                        <span class="product-alert me-auto">{{book.tag}}</span>
+                        {% endif %}
+
+                        <a href="#" class="bi-heart-fill product-icon"></a>
+                    </div>
+
+                    <div class="product-info d-flex">
+                        <div>
+                            <h5 class="product-title mb-0">
+                                <a href="{% url 'details' book.slugify book.id %}" class="product-title-link">{{book.title}}</a>
+                            </h5>
+
+                            <p class="product-p">{{book.author}}</p>
+                      
+                            <p>
+                                {% if book.premium_price %}
+                                <strike class="text-danger">{{book.premium_price}}XAF </strike>
+                                {% endif %}
+                                {{book.price}}XAF
+                            </p>
+                            
+                        </div>
+
+                        <!-- <small class="product-price text-muted ms-auto mt-auto mb-5">XAF 25</small> -->
+                    </div>
+                    
+                </div>
+            </div>
+
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+
+
+
+
+
+
+{% endblock content %}

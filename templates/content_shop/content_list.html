@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    } */
+
+    .banner {
+        height: 100vh;
+        background-image: url('images/girl-pointing.JPG'); /* Replace with your image path */
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .banner-caption {
+        font-size: 8.5rem;
+        font-weight: bold;
+    }
+
+    .content {
+        padding: 50px;
+        text-align: center;
+    }
+
+    .film {
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 1px;
+        text-align: center;
+        background-color: #fff;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .film:hover {
+        transform: scale(1.05);
+    }
+
+    .film img {
+        width: 100%;
+        height: 250px;
+        /* height: auto; */
+    }
+
+    .film-details {
+        margin-top: 10px;
+    }
+</style>
+
+{% for genre in genres %}
+<section class="section-padding">
+    <div class="container">
+        <h2 class="text-center mt-5 ">{{genre}}</h2>
+    
+        <div class="row ">
+            {% for content in contents %}
+            
+              {% if content.genre == genre %}
+                    <div class="col-md-4">
+                        <div class="film">
+                            <a href="{% url 'content_detail' slug=content.slugify id=content.id %}">
+                                <img src="{{content.thumbnail.url}}" alt="{{content}}">
+                            </a>
+                            <!-- <img src="images/girl-pointing.jpg" alt="Film 1"> -->
+                            <div class="film-details">
+                                <h5></h5>
+                                <p>{{content.title}}</p>
+                                <!-- <p>Genre: Drama</p> -->
+                                <!-- Add more details as needed -->
+                            </div>
+                        </div>
+                    </div>
+              {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+</section>
+{% endfor %}
+    
+   
+{% endblock content %}
