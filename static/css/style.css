@@ -1,0 +1,113 @@
+.search-container {
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     /* width: 16rem; */
+}
+
+.search-bar {
+    flex: 1;
+    padding: 4px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    border: 1px solid#000000;
+   
+}
+
+.search-button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 4px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    width: 1.8rem;
+}
+.search-button:focus {
+    background-color:#FF4400;
+    color: rgb(0, 0, 0) ;
+   
+}
+
+
+/* About */
+
+.team-container {
+    margin: 20px;
+  }
+
+  .team-card {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .team-card:hover {
+    transform: scale(1.05);
+  }
+
+  .team-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .team-card-body {
+    padding: 20px;
+  }
+
+  .team-member-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .team-member-position {
+    color: #868e96; /* Dark gray text color */
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #007bff; /* Bootstrap primary color for icons */
+  }
+
+  .mini-card {
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+    }
+
+    .mini-card:hover {
+        transform: scale(1.05);
+    }
+
+    .mini-card-body {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .genre-icon {
+        font-size: 3rem;
+        color: #110f0f;; /* Bootstrap primary color for icons */
+        margin-bottom: 10px;
+    }
+
+    .genre-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .genre-description {
+        color: #868e96; /* Dark gray text color */
+    }
+
+    /* About end */

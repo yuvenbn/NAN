@@ -1,0 +1,38 @@
+
+/* /banner feature */
+/* course */
+.card-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
+  .flex-basis-33 {
+    flex-basis: 33.3333%;
+  }
+  
+  .hover-shadow {
+    transition: .3s ease;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: 0px 4px 25px 0px rgba(27, 39, 71, 0.15);
+  }
+  
+  /* /success story */
+  /* events */
+  .card-date {
+    position: absolute;
+    background: #ffbc3b;
+    font-family: "futura-bold";
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    top: 0;
+    left: 0;
+    text-transform: uppercase;
+  }
+  
+  .card-date span {
+    font-size: 40px;
+  }
+  
